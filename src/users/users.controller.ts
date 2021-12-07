@@ -32,7 +32,7 @@ export class UsersController {
 
   @ApiOperation({ summary: 'Show all users' })
   @ApiResponse({ status: 200, type: [User] })
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Get()
   getAllUsers() {
     return this.userService.getAllUsers();
