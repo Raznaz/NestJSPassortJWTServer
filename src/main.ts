@@ -5,6 +5,8 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  const PORT = process.env.PORT;
+
   const config = new DocumentBuilder()
     .setTitle('My Server')
     .setDescription('Documentation my server project')
@@ -15,8 +17,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/api/docs', app, document);
 
-  await app.listen(3000, () =>
-    console.log(`Server start on port ${process.env.PORT}`),
-  );
+  await app.listen(PORT, () => console.log(`Server start on port ${PORT}`));
 }
 bootstrap();
