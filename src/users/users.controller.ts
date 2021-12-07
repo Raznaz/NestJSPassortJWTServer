@@ -13,7 +13,6 @@ import {
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { JwtAuthGuardShort } from 'src/auth/guards/jwt.guard';
-// import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { CreateUserDto } from './dto/createUser-dto';
 import { User } from './users.model';
 import { UsersService } from './users.service';
@@ -36,13 +35,6 @@ export class UsersController {
   @UseGuards(JwtAuthGuard)
   @Get()
   getAllUsers() {
-    return this.userService.getAllUsers();
-  }
-  @ApiOperation({ summary: 'Show all users' })
-  @ApiResponse({ status: 200, type: [User] })
-  @UseGuards(JwtAuthGuardShort)
-  @Get('test')
-  getAllUsers2() {
     return this.userService.getAllUsers();
   }
 
